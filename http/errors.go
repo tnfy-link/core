@@ -19,11 +19,11 @@ func preHandleError(err error, logger *zap.Logger) int {
 	return code
 }
 
-func NewViewsErrorHandler(logger *zap.Logger, template string) fiber.ErrorHandler {
+func NewViewsErrorHandler(logger *zap.Logger, template string, layouts ...string) fiber.ErrorHandler {
 	return func(c *fiber.Ctx, err error) error {
 		code := preHandleError(err, logger)
 
-		return c.Status(code).Render(template, fiber.Map{"error": err.Error(), "code": code})
+		return c.Status(code).Render(template, fiber.Map{"error": err.Error(), "code": code}, layouts...)
 	}
 }
 
