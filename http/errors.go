@@ -19,6 +19,13 @@ func preHandleError(err error, logger *zap.Logger) int {
 	return code
 }
 
+type JSONErrorResponse struct {
+	Error struct {
+		Message string `json:"message"` // Message
+		Code    int    `json:"code"`    // Code
+	}
+}
+
 func NewViewsErrorHandler(logger *zap.Logger, template string, layouts ...string) fiber.ErrorHandler {
 	return func(c *fiber.Ctx, err error) error {
 		code := preHandleError(err, logger)
