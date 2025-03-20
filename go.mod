@@ -8,7 +8,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.52.11
 	github.com/joho/godotenv v1.5.1
 	github.com/kelseyhightower/envconfig v1.4.0
-	github.com/redis/go-redis/v9 v9.7.0
+	github.com/redis/go-redis/v9 v9.7.3
 	go.uber.org/fx v1.23.0
 	go.uber.org/zap v1.27.0
 )
